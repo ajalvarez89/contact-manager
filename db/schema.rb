@@ -22,7 +22,7 @@ ActiveRecord::Schema.define(version: 2021_03_06_190908) do
     t.string "phone", null: false
     t.string "address", null: false
     t.string "credit_card", null: false
-    t.string "card_type", null: false
+    t.integer "card_type", null: false
     t.bigint "user_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false

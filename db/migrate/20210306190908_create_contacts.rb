@@ -9,7 +9,7 @@ class CreateContacts < ActiveRecord::Migration[6.0]
       t.string :phone, null: false
       t.string :address, null: false
       t.string :credit_card, null: false
-      t.string :card_type, null: false
+      t.integer :card_type, null: false
       t.references :user, null: false, foreign_key: true
 
       t.timestamps
