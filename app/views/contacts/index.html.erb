@@ -224,16 +224,16 @@
               <thead class="thead-light">
                 <tr>
                   <th scope="col">ID</th>
-                  <th scope="col">Path</th>
                   <th scope="col">Status</th>
+                  <th scope="col">Path</th>
                 </tr>
               </thead>
               <tbody>
                 <% current_user.imports.each do |import| %>
                   <tr>
                     <th scope="row"><%= import.id %></td>
-                    <th ><%= import.file_path %></td>
                     <td><%= import.status %></td>
+                    <th ><a href="<%= import.file_path %>" target="_blank"><%= import.file_path %></a></td>
                   </tr>
                 <% end %>
               </tbody>

@@ -14,11 +14,10 @@ module Contacts
       import.file_path = file.path
       import.user = user
       import.processing!
-      import.save!
+      import.save
 
       import_contacts!
-
-      true
+      update_file_path! if upload_file!
     end
 
     def import_contacts!
@@ -40,6 +39,24 @@ module Contacts
 
         successful.length.zero? ? import.failed! : import.finished!
       end
+    end
+
+    def update_file_path!
+      import.file_path = get_file_url
+      import.save
+    end
+
+    def get_file_url
+      obj = s3.objects(s3.documents_key(import.id))
+      obj.presigned_url(:get, expires_in: 10)
+    end
+
+    def upload_file!
+      s3.upload(import.id, file.path)
+    end
+
+    def s3
+      @s3 ||= S3.new
     end
   end
 end

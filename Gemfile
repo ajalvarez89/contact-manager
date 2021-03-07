@@ -5,10 +5,8 @@ git_source(:github) { |repo| "https://github.com/#{ repo }.git" }
 
 ruby '2.7.0'
 
-gem 'aasm'
 gem 'aws-sdk'
 gem 'bootsnap', '>= 1.4.2', require: false
-gem 'carrierwave', '~> 2.1'
 gem 'csv', '~> 3.1', '>= 3.1.9'
 gem 'devise'
 gem 'fog-aws', '~> 3.6', '>= 3.6.2'

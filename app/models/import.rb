@@ -7,5 +7,4 @@ class Import < ApplicationRecord
   validates :file_path, :status, presence: true
 
   enum status: %i[hold processing failed finished]
-  # mount_uploader :file_path, AttachableUploader
 end
