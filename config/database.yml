@@ -18,6 +18,3 @@ test:
 
 production:
   <<: *default
-  username: <%= ENV["POSTGRESQL_USER"] || 'postgres' %>
-  database: <%= ENV["POSTGRESQL_DATABASE"] || 'contact_manager_production' %>
-  password: postgres
