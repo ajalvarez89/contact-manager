@@ -1,24 +1,39 @@
-# README
+# Contact Manager
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+This project help us to upload a contact list from .csv file.
 
-Things you may want to cover:
+## Setup
 
-* Ruby version
+Just run the bin setup:
 
-* System dependencies
+```bash
+  bin/setup
+```
+or
 
-* Configuration
+```bash
+  bundle install
+  rails db:setup
+  yarn install --check-files
+```
 
-* Database creation
+To run the app:
 
-* Database initialization
+```bash
+  cp .env.example .env
+  source .env
+  and
+  rails server
+```
+## check use:💎
 
-* How to run the test suite
+*registration:
+```bash
+- accoding to a one of the definitions of done
+  the user be able to crate an account and also a login
+```
 
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+*upload csv:
+```bash
+- just we have to load the file and see de contacts, errors and imports
+```
