@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_03_06_190908) do
+ActiveRecord::Schema.define(version: 2021_03_07_024710) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -29,6 +29,24 @@ ActiveRecord::Schema.define(version: 2021_03_06_190908) do
     t.index ["user_id"], name: "index_contacts_on_user_id"
   end
 
+  create_table "import_errors", force: :cascade do |t|
+    t.jsonb "contact"
+    t.jsonb "contact_error"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.bigint "import_id", null: false
+    t.index ["import_id"], name: "index_import_errors_on_import_id"
+  end
+
+  create_table "imports", force: :cascade do |t|
+    t.string "file_path"
+    t.integer "status"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.bigint "user_id", null: false
+    t.index ["user_id"], name: "index_imports_on_user_id"
+  end
+
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
@@ -42,4 +60,6 @@ ActiveRecord::Schema.define(version: 2021_03_06_190908) do
   end
 
   add_foreign_key "contacts", "users"
+  add_foreign_key "import_errors", "imports"
+  add_foreign_key "imports", "users"
 end

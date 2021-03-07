@@ -5,6 +5,8 @@ class User < ApplicationRecord
     :recoverable, :rememberable, :validatable
 
   has_many :contacts
+  has_many :imports
+  has_many :import_errors, through: :imports
 
   accepts_nested_attributes_for :contacts, allow_destroy: true
 

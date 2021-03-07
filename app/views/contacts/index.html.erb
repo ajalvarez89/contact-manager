@@ -133,6 +133,28 @@
               </div>
             </div>
           </div>
+          <div class="col-xl-3 col-md-6">
+            <div class="card card-stats">
+              <!-- Card body -->
+              <div class="card-body">
+                <div class="row">
+                  <div class="col">
+                    <h5 class="card-title text-uppercase text-muted mb-0">Total Errors</h5>
+                    <span class="h2 font-weight-bold mb-0"><%= current_user.import_errors.count %></span>
+                  </div>
+                  <div class="col-auto">
+                    <div class="icon-shape bg-gradient-orange text-white rounded-circle shadow">
+                      <i class="ni ni-chart-pie-35"></i>
+                    </div>
+                  </div>
+                </div>
+                <p class="mt-3 mb-0 text-sm">
+                  <span class="text-success mr-2"><i class="fa fa-arrow-up"></i> 3.48%</span>
+                  <span class="text-nowrap">Since last month</span>
+                </p>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </div>
@@ -140,7 +162,7 @@
   <!-- Page content -->
   <div class="container-fluid mt--6">
     <div class="row">
-      <div class="col-xl-12">
+      <div class="col-xl-8">
         <div class="card">
           <div class="card-header border-0">
             <div class="row align-items-center">
@@ -179,6 +201,72 @@
                     <td><%= link_to 'Destroy', contact, method: :delete, data: { confirm: 'Are you sure?' } %></td>
                   </tr>
                 <% end %>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      <div class="col-xl-4">
+        <div class="card">
+          <div class="card-header border-0">
+            <div class="row align-items-center">
+              <div class="col">
+                <h3 class="mb-0">Imports</h3>
+              </div>
+              <div class="col text-right">
+                <a href="#!" class="btn btn-sm btn-primary">See all</a>
+              </div>
+            </div>
+          </div>
+          <div class="table-responsive">
+            <!-- Projects table -->
+            <table class="table align-items-center table-flush">
+              <thead class="thead-light">
+                <tr>
+                  <th scope="col">ID</th>
+                  <th scope="col">Path</th>
+                  <th scope="col">Status</th>
+                </tr>
+              </thead>
+              <tbody>
+                <% current_user.imports.each do |import| %>
+                  <tr>
+                    <th scope="row"><%= import.id %></td>
+                    <th ><%= import.file_path %></td>
+                    <td><%= import.status %></td>
+                  </tr>
+                <% end %>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      <div class="col-xl-8">
+        <div class="card">
+          <div class="card-header border-0">
+            <div class="row align-items-center">
+              <div class="col">
+                <h3 class="mb-0">Import Errors</h3>
+              </div>
+            </div>
+          </div>
+          <div class="table-responsive">
+            <table class="table align-items-center table-flush">
+              <thead class="thead-light">
+                <tr>
+                  <th scope="col">Import ID</th>
+                  <th scope="col">Contact Error</th>
+                  <th scope="col">Contact</th>
+                </tr>
+              </thead>
+              <tbody>
+                <% current_user.import_errors.each do |error| %>
+                <tr>
+                  <th scope="row"><%= error.import_id %></td>
+                  <td><%= error.contact_error %></td>
+                  <td><%= error.contact %></td>
+                </tr>
+                <% end%>
               </tbody>
             </table>
           </div>

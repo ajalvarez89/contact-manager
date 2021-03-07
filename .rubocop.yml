@@ -42,7 +42,7 @@ Layout/SpaceAroundMethodCallOperator:
   Enabled: true
 
 Metrics/AbcSize:
-  Max: 20
+  Max: 25
 
 Metrics/BlockLength:
   Exclude:
@@ -55,7 +55,7 @@ Metrics/ModuleLength:
   Max: 100
 
 Metrics/MethodLength:
-  Max: 15
+  Max: 16
 
 Naming/RescuedExceptionsVariableName:
   PreferredName: exception

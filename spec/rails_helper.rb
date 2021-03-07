@@ -18,8 +18,6 @@ end
 RSpec.configure do |config|
   config.use_transactional_fixtures = false
   config.include FactoryBot::Syntax::Methods
-
-  #helpers for sessions with devise
   config.include Warden::Test::Helpers
   config.include Devise::Test::ControllerHelpers, type: 'controller'
   config.include Devise::Test::IntegrationHelpers, type: 'request'
