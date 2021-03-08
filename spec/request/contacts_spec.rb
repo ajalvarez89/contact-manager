@@ -7,7 +7,7 @@ RSpec.describe 'Contacts', type: :request do
   before(:each) { sign_in user }
 
   describe 'GET /contacts' do
-    it 'is redirect to task index' do
+    it 'is redirect to contacts index' do
       get contacts_path
       expect(response).to have_http_status(200)
     end

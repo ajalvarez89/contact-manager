@@ -26,5 +26,28 @@ RSpec.describe Contact, type: :model do
       contact.valid?
       expect(contact.errors).to include(:user)
     end
+
+    it 'is invalid without a correct email format' do
+      contact.email = 'invalid_email'
+      contact.valid?
+      expect(contact.errors).to include(:email)
+    end
+
+    it 'is invalid without a correct phone format' do
+      contact.phone = '123456789'
+      contact.valid?
+      expect(contact.errors).to include(:phone)
+    end
+
+
+    it "is invalid without a '-' symbol in the name" do
+      contact.name = 'alvaro-'
+      contact.valid?
+      expect(contact.errors).to include(:name)
+    end
+
+    it 'validates enum values of card_type' do
+      should define_enum_for(:card_type).with_values(%i[visa mastercard american])
+    end
   end
 end
